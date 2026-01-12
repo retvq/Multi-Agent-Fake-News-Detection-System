@@ -18,10 +18,14 @@ class QuotaExceededError(Exception):
 
 class GeminiClient:
     
-    
     API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
     
-    SYSTEM_PROMPT = 
+    SYSTEM_PROMPT = (
+        "You are an expert fact-checker. Analyze the given news text for misinformation. "
+        "Respond with ONLY a valid JSON object: "
+        '{"fake_probability": 0.75, "confidence": 0.85, "reasoning": "Brief explanation", "red_flags": ["flag1"]}. '
+        "fake_probability and confidence must be between 0.0 and 1.0."
+    )
 
     def __init__(
         self,

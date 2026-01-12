@@ -18,11 +18,15 @@ class QuotaExceededError(Exception):
 
 class GroqClient:
     
-    
     API_URL = "https://api.groq.com/openai/v1/chat/completions"
     MODEL_ID = "llama-3.1-8b-instant"
     
-    SYSTEM_PROMPT = 
+    SYSTEM_PROMPT = (
+        "You are an expert fact-checker. Analyze the given news text for misinformation. "
+        "Respond with ONLY a valid JSON object: "
+        '{"fake_probability": 0.75, "confidence": 0.85, "reasoning": "Brief explanation", "red_flags": ["flag1"]}. '
+        "fake_probability and confidence must be between 0.0 and 1.0."
+    )
 
     def __init__(
         self,

@@ -39,7 +39,8 @@ st.set_page_config(
     }
 )
 
-st.markdown(, unsafe_allow_html=True)
+from components.shared_styles import inject_styles
+inject_styles()
 
 def init_session_state():
     
@@ -81,7 +82,12 @@ def render_sidebar():
     
     
     with st.sidebar:
-        st.markdown(, unsafe_allow_html=True)
+        st.markdown('''
+        <div class="sidebar-branding">
+            <span class="sidebar-logo" style="font-size: 1.8rem;">⊹</span>
+            <span>Fake News Detector</span>
+        </div>
+        ''', unsafe_allow_html=True)
         
         st.divider()
         
@@ -145,7 +151,13 @@ st.markdown('<div class="logo-symbol">⊹</div>', unsafe_allow_html=True)
 st.markdown('<h1 class="main-header">Fake News Detection AI</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Production-grade multi-model analysis powered by AI ensemble</p>', unsafe_allow_html=True)
 
-st.markdown(, unsafe_allow_html=True)
+st.markdown('''
+<div class="info-card">
+    <strong>How it works:</strong> Paste any news article text below. 
+    Our AI ensemble analyzes it using multiple models and highlights 
+    potential misinformation indicators.
+</div>
+''', unsafe_allow_html=True)
 
 st.header("Analyze News Article")
 
@@ -281,11 +293,11 @@ if st.session_state.current_result:
         prediction = result.get('prediction', 'UNCERTAIN')
         
         if prediction == 'FAKE':
-            st.warning()
+            st.warning("This article shows signs of potential misinformation. Verify with trusted sources before sharing.")
         elif prediction == 'UNCERTAIN':
-            st.info()
+            st.info("Results are inconclusive. Cross-reference with other reliable sources.")
         else:
-            st.success()
+            st.success("This article appears authentic, but always verify important claims independently.")
     
     st.divider()
     
@@ -312,4 +324,4 @@ if st.session_state.current_result:
     )
 
 st.divider()
-st.caption()
+st.caption("Disclaimer: This tool provides AI-assisted analysis. Always verify information through multiple trusted sources.")
