@@ -37,7 +37,19 @@ def display_verdict(result: Dict[str, Any]) -> None:
     
     color = colors.get(prediction, colors['UNCERTAIN'])
     
-    st.markdown(f, unsafe_allow_html=True)
+    st.markdown(f"""
+    <div style="
+        background: {color['bg']};
+        border: 2px solid {color['border']};
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        margin: 20px 0;
+    ">
+        <span style="font-size: 3rem;">{color['icon']}</span>
+        <h2 style="color: {color['text']}; margin: 10px 0;">{color['label']}</h2>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
