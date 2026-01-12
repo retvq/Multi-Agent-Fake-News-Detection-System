@@ -2,6 +2,13 @@
 
 A multi-model AI system that analyzes news articles to detect potential misinformation.
 
+
+<img width="1364" height="640" alt="image" src="https://github.com/user-attachments/assets/57007d6b-e185-4626-9b1f-1d8c63ba3209" />
+
+<img width="1365" height="586" alt="image" src="https://github.com/user-attachments/assets/91112a87-f8ed-4986-8460-7df8332868a8" />
+
+<img width="1028" height="572" alt="image" src="https://github.com/user-attachments/assets/7c2386e7-00e7-4ed9-9b4c-cc78552abf7b" />
+
 ## Quick Start
 
 ### 1. Install
@@ -53,9 +60,8 @@ Open http://localhost:8501
 
 ## Pipeline Architecture
 
-![Flowchart](FlowChart.png)
+![FlowChart](https://github.com/user-attachments/assets/9819eef7-9a59-48a3-8bd0-c1131fc3b80b)
 
-[View PDF version](FlowChart.pdf)
 
 ---
 
@@ -108,3 +114,4 @@ python -m pytest tests/ -v
 ## License
 
 MIT License
+
